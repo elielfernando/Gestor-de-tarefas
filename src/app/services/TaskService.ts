@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
-import { task } from '../models/task';
+import { Task } from '../models/task';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Task {
+export class TaskService {
   constructor() { }
-  private tasks: Array<task> = [];
-
-  getTasks(): Array<task> {
+  
+  // Array que guarda todas as tarefas
+  private tasks: Array<Task> = [];
+  
+  // Retorna todas as tarefas
+  getTasks(): Array<Task> {
     this.tasks = this.getFromLocalStorage();
     return this.tasks;
   }
-  getById(id: number): task | undefined {
+  // Busca uma tarefa pelo ID
+  getById(id: number): Task | undefined {
     const task = this.tasks.find((task) => task.id === id);
     return task;
   }
-  addTask(task: task): void {
+  addTask(task: Task): void {
     this.tasks.push(task);
     this.saveToLocalStorage();
   }
   updateTask() {
     this.saveToLocalStorage();
   }
-  removeTask(task: task): void {
+  removeTask(task: Task): void {
     const index = this.tasks.findIndex((t) => t.id === task.id);
     //se a tarefa for encontrada, remove do array
     if (index !== -1) {
@@ -35,13 +39,13 @@ export class Task {
     const tasksJson = JSON.stringify(this.tasks);
     localStorage.setItem('tasks', tasksJson);
   }
-  private getFromLocalStorage(): Array<task> {
+  private getFromLocalStorage(): Array<Task> {
     const tasksJson = localStorage.getItem('tasks');
     if (!tasksJson) {
 
       //não há tarefas salvas
-      return new Array<task>();
+      return new Array<Task>();
     }
-    return JSON.parse(tasksJson) as Array<task>;
+    return JSON.parse(tasksJson) as Array<Task>;
   }
 }
