@@ -7,9 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-task-list',
+  standalone: true,
   imports: [TaskFilter, CommonModule, FormsModule, RouterLink],
   templateUrl: './task-list.html',
-  styleUrl: './task-list.css',
+  styleUrls: ['./task-list.css'],
 })
 export class TaskList {
 
@@ -38,12 +39,10 @@ export class TaskList {
     this.taskService.updateTask();
   }
   filterTasks(filter: string) {
-    if (filter === '') {
-      this.tasks = this.tasks.filter(c => c.name.includes(filter));
-    }
-    else {
+    if (filter) {
+      this.tasks = this.taskService.getTasks().filter(task => task.name.toLowerCase().includes(filter.toLowerCase()));
+    } else {
       this.tasks = this.taskService.getTasks();
     }
-
   }
 }
