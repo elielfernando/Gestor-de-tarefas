@@ -1,6 +1,6 @@
 <app-task-filter (taskfilter)="filterTasks($event)"></app-task-filter>
 <div class="container">
-    <h2>A fazer</h2>
+    <h2>A Fazer</h2>
     <ul>
         @for (task of tasks; track $index){        <li > 
             <input type="checkbox" (change)="updateTasks()" [(ngModel)]="task.completed" name ="completed">
