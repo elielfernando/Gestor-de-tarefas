@@ -10,8 +10,9 @@ Um aplicativo simples de gerenciamento de tarefas desenvolvido com Angular.
 - Adicionar, editar e remover tarefas
 
 ## Tecnologias
-- Angular
+- Angular-framework front-end moderno
 - Firebase (para hospedagem)
+- TypeScript – tipagem estática e segurança no código
 
 ## Como executar
 1. Instale as dependências: `npm install`
