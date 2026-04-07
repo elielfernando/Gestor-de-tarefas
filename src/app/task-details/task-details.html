@@ -1,11 +1,17 @@
 <div class="container"> 
-    <h2>{{ task?.name }}</h2>
-    <p>Status: {{ task?.completed ? 'Concluída' : 'Pendente' }}  </p>
-    <p>Descrição: {{ task?.description }}</p>
+    <h2 class="fazer">Detalhes da Tarefa</h2>
+    <br>
+    <p><strong>Titulo da Tarefa:</strong>  {{ task?.name }}</p>
+    <p><strong>Status:</strong> {{ task?.completed ? 'Concluída' : 'Pendente' }}  </p>
+    <p class="description-display"><strong>Descrição:</strong> {{ task?.description }}</p>
+    
     <div>
-        <h2>Editar Descrição</h2>
+        <p><strong>Editar Descrição :</strong></p>
         <textarea [(ngModel)]="task!.description"></textarea>
-        <button class="save-button" (click)="save()">Salvar</button>
-        <button class="cancel-button" (click)="cancel()">Cancelar</button>   
+        <div class="centraliza"> 
+            <button class="save-button" (click)="save()">Salvar</button>
+            <button class="cancel-button" (click)="cancel()">Cancelar</button> 
+        </div>
+         
     </div>
 </div>

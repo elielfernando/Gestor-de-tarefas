@@ -39,9 +39,14 @@ h1{
 h2{
     font-size: var(--font-size-3);
 }
+.fazer{
+    font-size: var(--font-size-3);
+    text-align: center;
+}
 
 p, a{
     color: var(--color-black-4);
+    margin: 8px 0;
 }
 
 .container{
