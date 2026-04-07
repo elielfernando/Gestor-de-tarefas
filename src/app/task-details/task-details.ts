@@ -30,7 +30,7 @@ export class TaskDetails implements OnInit {
     }
   }
   save() {
-    this.taskService.updateTask();
+    this.taskService.updateTask(this.task!);
     this.navigateBack();
   }
 

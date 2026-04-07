@@ -1,8 +1,9 @@
 <div class="container"> 
     <h2>{{ task?.name }}</h2>
     <p>Status: {{ task?.completed ? 'Concluída' : 'Pendente' }}  </p>
+    <p>Descrição: {{ task?.description }}</p>
     <div>
-        <h2>Descrição</h2>
+        <h2>Editar Descrição</h2>
         <textarea [(ngModel)]="task!.description"></textarea>
         <button class="save-button" (click)="save()">Salvar</button>
         <button class="cancel-button" (click)="cancel()">Cancelar</button>   
